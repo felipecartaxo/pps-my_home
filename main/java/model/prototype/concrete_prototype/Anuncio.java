@@ -18,15 +18,15 @@ import java.util.UUID;
  *
  * 1. PROTOTYPE (RF02)
  *    PAPEL: ConcretePrototype
- *    FUNÇÃO: Permite clonagem de anúncios a partir de configurações padrão.
+ *    FUNÇÃO: Permite clonagem de anúncios a partir de configurações padrão
  *
  * 2. STATE (RF04)
  *    PAPEL: Context
- *    FUNÇÃO: Mantém referência ao estado atual e delega ações de transição.
+ *    FUNÇÃO: Mantém referência ao estado atual e delega ações de transição
  *
  * 3. OBSERVER (RF04)
  *    PAPEL: Utiliza Subject por composição (GerenciadorObservadores)
- *    FUNÇÃO: Delega o gerenciamento de observers para classe especializada.
+ *    FUNÇÃO: Delega o gerenciamento de observers para classe especializada
  */
 public class Anuncio implements AnuncioPrototype {
 
@@ -55,10 +55,7 @@ public class Anuncio implements AnuncioPrototype {
     // OBSERVER: gerenciador de observadores (composição)
     private final GerenciadorObservadores gerenciadorObservadores;
 
-    /**
-     * Construtor padrão.
-     * Inicializa o anúncio no estado Rascunho (conforme RF04).
-     */
+    // Inicializa o anúncio no estado Rascunho (conforme RF04)
     public Anuncio() {
         this.id = UUID.randomUUID().toString().substring(0, 8);
         this.estadoAtual = new EstadoRascunho();
@@ -69,9 +66,7 @@ public class Anuncio implements AnuncioPrototype {
         this.tipoTransacao = TipoTransacao.VENDA;
     }
 
-    /**
-     * Construtor com parâmetros obrigatórios (RF01).
-     */
+    // Construtor com parâmetros obrigatórios (RF01)
     public Anuncio(String titulo, Imovel imovel, double preco) {
         this();
         this.titulo = titulo;
@@ -80,7 +75,7 @@ public class Anuncio implements AnuncioPrototype {
     }
 
     /**
-     * Construtor de cópia (PROTOTYPE).
+     * Construtor de cópia (PROTOTYPE)
      *
      * IMPORTANTE:
      * - Novo ID é gerado para a cópia
@@ -130,69 +125,49 @@ public class Anuncio implements AnuncioPrototype {
     // STATE PATTERN - Métodos que delegam para o estado atual
     // ========================================================================
 
-    /**
-     * Envia o anúncio para moderação.
-     * Transição esperada: Rascunho -> Pendente de Moderação
-     */
+    // Envia o anúncio para moderação
     public void enviarParaModeracao() {
         String estadoAnterior = estadoAtual.getNomeEstado();
         estadoAtual.enviarParaModeracao(this);
         verificarMudancaEstado(estadoAnterior);
     }
 
-    /**
-     * Aprova o anúncio (após moderação - RF03).
-     * Transição esperada: Pendente de Moderação -> Ativo
-     */
+    // Aprova o anúncio (após moderação - RF03)
     public void aprovar() {
         String estadoAnterior = estadoAtual.getNomeEstado();
         estadoAtual.aprovar(this);
         verificarMudancaEstado(estadoAnterior);
     }
 
-    /**
-     * Reprova o anúncio (na moderação - RF03).
-     * Transição esperada: Pendente de Moderação -> Suspenso
-     */
+    // Reprova o anúncio (na moderação - RF03)
     public void reprovar() {
         String estadoAnterior = estadoAtual.getNomeEstado();
         estadoAtual.reprovar(this);
         verificarMudancaEstado(estadoAnterior);
     }
 
-    /**
-     * Marca o anúncio como vendido/alugado.
-     * Transição esperada: Ativo -> Vendido/Alugado
-     */
+    // Marca o anúncio como vendido/alugado
     public void vender() {
         String estadoAnterior = estadoAtual.getNomeEstado();
         estadoAtual.vender(this);
         verificarMudancaEstado(estadoAnterior);
     }
 
-    /**
-     * Suspende o anúncio.
-     * Transições esperadas: Pendente -> Suspenso OU Ativo -> Suspenso
-     */
+    // Suspende o anúncio
     public void suspender() {
         String estadoAnterior = estadoAtual.getNomeEstado();
         estadoAtual.suspender(this);
         verificarMudancaEstado(estadoAnterior);
     }
 
-    /**
-     * Retorna o anúncio para rascunho (para correções).
-     * Transição esperada: Suspenso -> Rascunho
-     */
+    // Retorna o anúncio para rascunho
     public void voltarParaRascunho() {
         String estadoAnterior = estadoAtual.getNomeEstado();
         estadoAtual.voltarParaRascunho(this);
         verificarMudancaEstado(estadoAnterior);
     }
 
-    /**
-     * Verifica se houve mudança de estado e notifica observadores.
-     */
+    // Verifica se houve mudança de estado e notifica observadores
     private void verificarMudancaEstado(String estadoAnterior) {
         String estadoNovo = estadoAtual.getNomeEstado();
         if (!estadoAnterior.equals(estadoNovo)) {
@@ -202,16 +177,12 @@ public class Anuncio implements AnuncioPrototype {
         }
     }
 
-    /**
-     * Método usado pelos ConcreteStates para alterar o estado interno.
-     */
+    // Método usado pelos ConcreteStates para alterar o estado interno
     public void setEstadoInterno(EstadoAnuncio novoEstado) {
         this.estadoAtual = novoEstado;
     }
 
-    /**
-     * Retorna o nome do estado atual.
-     */
+    // Retorna o nome do estado atual
     public String getEstadoAtual() {
         return estadoAtual.getNomeEstado();
     }
@@ -221,16 +192,16 @@ public class Anuncio implements AnuncioPrototype {
     // ========================================================================
 
     /**
-     * Adiciona um observador à lista de notificação.
-     * Delega para o GerenciadorObservadores.
+     * Adiciona um observador à lista de notificação
+     * Delega para o GerenciadorObservadores
      */
     public void adicionarObservador(ObservadorAnuncio observador) {
         gerenciadorObservadores.adicionar(observador);
     }
 
     /**
-     * Remove um observador da lista de notificação.
-     * Delega para o GerenciadorObservadores.
+     * Remove um observador da lista de notificação
+     * Delega para o GerenciadorObservadores
      */
     public void removerObservador(ObservadorAnuncio observador) {
         gerenciadorObservadores.remover(observador);
@@ -320,18 +291,14 @@ public class Anuncio implements AnuncioPrototype {
         this.dataAtualizacao = LocalDateTime.now();
     }
 
-    /**
-     * Valida se o anúncio possui os atributos obrigatórios preenchidos (RF01).
-     */
+    // Valida se o anúncio possui os atributos obrigatórios preenchidos (RF01)
     public boolean isValido() {
         return titulo != null && !titulo.trim().isEmpty() &&
                 imovel != null &&
                 preco > 0;
     }
 
-    /**
-     * Retorna uma representação textual resumida do anúncio.
-     */
+    // Retorna uma representação textual resumida do anúncio
     public String getResumo() {
         StringBuilder sb = new StringBuilder();
         sb.append("═".repeat(60)).append("\n");
@@ -358,9 +325,7 @@ public class Anuncio implements AnuncioPrototype {
         return sb.toString();
     }
 
-    /**
-     * Retorna descrição detalhada incluindo informações do imóvel.
-     */
+    // Retorna descrição detalhada incluindo informações do imóvel
     public String getDescricaoCompleta() {
         StringBuilder sb = new StringBuilder();
         sb.append(getResumo()).append("\n\n");
