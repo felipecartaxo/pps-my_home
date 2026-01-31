@@ -3,8 +3,6 @@ package model.state.concrete_states;
 import model.prototype.concrete_prototype.Anuncio;
 import model.state.EstadoAnuncio;
 
-public class EstadoAtivo {
-
     /**
      * PADRÃO: State
      * PAPEL: ConcreteState
@@ -50,4 +48,3 @@ public class EstadoAtivo {
             anuncio.setEstadoInterno(new EstadoSuspenso());
         }
     }
-}
