@@ -2,6 +2,7 @@ package model.chain_of_responsibility.concrete_handlers;
 
 import model.chain_of_responsibility.base_handler.ModeracaoHandlerBase;
 import model.prototype.concrete_prototype.Anuncio;
+import model.singleton.ConfiguracaoSistema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,13 @@ import java.util.List;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÃO: Handler responsável por verificar termos proibidos no anúncio
+ * FUNÇÃO: Verifica se o anúncio contém termos proibidos no título ou descrição.
+ *
+ * INTEGRAÇÃO COM RF07 (Singleton):
+ * - Os termos proibidos são carregados do Singleton ConfiguracaoSistema,
+ * que por sua vez carrega do arquivo config.properties
+ *
+ * Isso permite que os termos proibidos sejam alterados sem modificar código
  */
 public class TermosProibidosHandler extends ModeracaoHandlerBase {
 
@@ -20,18 +27,19 @@ public class TermosProibidosHandler extends ModeracaoHandlerBase {
         carregarTermosProibidos();
     }
 
-    // Defina os termos proibidos aqui
+    // Carrega os termos proibidos do Singleton de configuração
     private void carregarTermosProibidos() {
-        // TODO: Integrar com ConfiguracaoSistema (RF07 - Singleton)
-        this.termosProibidos = new ArrayList<>();
-        termosProibidos.add("golpe");
-        termosProibidos.add("fraude");
-        termosProibidos.add("spam");
-        termosProibidos.add("grátis");
+        // Obtém termos do Singleton (RF07)
+        this.termosProibidos = new ArrayList<>(
+                ConfiguracaoSistema.getInstancia().getTermosProibidos()
+        );
     }
 
-    public void setTermosProibidos(List<String> termos) {
-        this.termosProibidos = new ArrayList<>(termos);
+    // Permite adicionar termos proibidos dinamicamente
+    public void adicionarTermo(String termo) {
+        if (termo != null && !termo.trim().isEmpty()) {
+            termosProibidos.add(termo.toLowerCase().trim());
+        }
     }
 
     @Override

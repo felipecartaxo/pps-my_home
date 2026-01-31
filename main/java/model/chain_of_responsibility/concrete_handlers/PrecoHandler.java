@@ -3,29 +3,43 @@ package model.chain_of_responsibility.concrete_handlers;
 import enums.TipoTransacao;
 import model.chain_of_responsibility.base_handler.ModeracaoHandlerBase;
 import model.prototype.concrete_prototype.Anuncio;
+import model.singleton.ConfiguracaoSistema;
 
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÃO: Handler responsável por validar o preço do anúncio
+ * FUNÇÃO: Valida se o preço do anúncio está dentro dos limites aceitáveis
+ *
+ * INTEGRAÇÃO COM RF07 (Singleton):
+ * - Os limites de preço são carregados do Singleton ConfiguracaoSistema,
+ * que por sua vez carrega do arquivo config.properties
+ *
+ * Isso permite que os limites sejam alterados sem modificar código.
  */
 public class PrecoHandler extends ModeracaoHandlerBase {
 
-    private double precoMinimoVenda = 10000.0;
-    private double precoMinimoAluguel = 100.0;
-    private double precoMinimoTemporada = 50.0;
-    private double precoMaximo = 500000000.0;
+    private double precoMinimoVenda;
+    private double precoMinimoAluguel;
+    private double precoMinimoTemporada;
+    private double precoMaximo;
 
     public PrecoHandler() {
         super("Validador de Preço");
+        carregarConfiguracoes();
     }
 
-    public void configurarLimites(double minimoVenda, double minimoAluguel,
-                                  double minimoTemporada, double maximo) {
-        this.precoMinimoVenda = minimoVenda;
-        this.precoMinimoAluguel = minimoAluguel;
-        this.precoMinimoTemporada = minimoTemporada;
-        this.precoMaximo = maximo;
+    /**
+     * Carrega os limites de preço do Singleton de configuração.
+     *
+     * INTEGRAÇÃO RF07: Usa ConfiguracaoSistema.getInstancia() para
+     * obter os limites do arquivo de configuração.
+     */
+    private void carregarConfiguracoes() {
+        ConfiguracaoSistema config = ConfiguracaoSistema.getInstancia();
+        this.precoMinimoVenda = config.getPrecoMinimoVenda();
+        this.precoMinimoAluguel = config.getPrecoMinimoAluguel();
+        this.precoMinimoTemporada = config.getPrecoMinimoTemporada();
+        this.precoMaximo = config.getPrecoMaximo();
     }
 
     @Override
