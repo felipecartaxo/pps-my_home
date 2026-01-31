@@ -6,7 +6,7 @@ import model.factory_method.product.ImovelBase;
 /**
  * PADRÃO: Factory Method
  * PAPEL: Concrete Product
- * FUNÇÃO: Representa um imóvel do tipo Terreno com suas características específicas.
+ * FUNÇÃO: Representa um imóvel do tipo Terreno com suas características específicas
  *
  * Características específicas de Terreno:
  * - Tipo de terreno (urbano, rural)

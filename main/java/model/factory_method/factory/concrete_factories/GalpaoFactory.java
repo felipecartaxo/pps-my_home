@@ -7,8 +7,7 @@ import model.factory_method.product.Imovel;
 /**
  * PADRÃO: Factory Method
  * PAPEL: Concrete Creator
- *
- * FUNÇÃO: Factory responsável pela criação de imóveis do tipo Galpão. Encapsula toda a lógica de instanciação e configuração inicial de galpões.
+ * FUNÇÃO: Factory responsável pela criação de imóveis do tipo Galpão. Encapsula toda a lógica de instanciação e configuração inicial de galpões
  */
 public class GalpaoFactory implements ImovelFactory {
 
@@ -21,9 +20,7 @@ public class GalpaoFactory implements ImovelFactory {
         return galpao;
     }
 
-    /**
-     * Método específico para criar galpão com configurações detalhadas.
-     */
+    // Método específico para criar galpão com configurações detalhadas
     public Galpao criarGalpaoCompleto(double area, String localizacao,
                                       Galpao.TipoUsoGalpao tipoUso,
                                       double peDireito,

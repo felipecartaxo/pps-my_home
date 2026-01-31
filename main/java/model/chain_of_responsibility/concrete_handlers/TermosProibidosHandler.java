@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÃO: Handler responsável por verificar termos proibidos no anúncio.
+ * FUNÇÃO: Handler responsável por verificar termos proibidos no anúncio
  */
 public class TermosProibidosHandler extends ModeracaoHandlerBase {
 
@@ -20,6 +20,7 @@ public class TermosProibidosHandler extends ModeracaoHandlerBase {
         carregarTermosProibidos();
     }
 
+    // Defina os termos proibidos aqui
     private void carregarTermosProibidos() {
         // TODO: Integrar com ConfiguracaoSistema (RF07 - Singleton)
         this.termosProibidos = new ArrayList<>();

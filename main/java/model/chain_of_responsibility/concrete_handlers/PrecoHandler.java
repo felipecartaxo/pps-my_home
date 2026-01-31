@@ -7,7 +7,7 @@ import model.prototype.concrete_prototype.Anuncio;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÃO: Handler responsável por validar o preço do anúncio.
+ * FUNÇÃO: Handler responsável por validar o preço do anúncio
  */
 public class PrecoHandler extends ModeracaoHandlerBase {
 

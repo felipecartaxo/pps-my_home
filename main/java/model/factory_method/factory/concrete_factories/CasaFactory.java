@@ -7,7 +7,7 @@ import model.factory_method.product.Imovel;
 /**
  * PADRÃO: Factory Method
  * PAPEL: Concrete Creator
- * FUNÇÃO: Factory responsável pela criação de imóveis do tipo Casa. Encapsula toda a lógica de instanciação e configuração inicial de casas.
+ * FUNÇÃO: Factory responsável pela criação de imóveis do tipo Casa. Encapsula toda a lógica de instanciação e configuração inicial de casas
  */
 public class CasaFactory implements ImovelFactory {
 

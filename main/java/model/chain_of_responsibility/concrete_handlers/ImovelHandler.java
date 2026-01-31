@@ -7,7 +7,7 @@ import model.prototype.concrete_prototype.Anuncio;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÂO: Handler responsável por validar o imóvel associado ao anúncio.
+ * FUNÇÂO: Handler responsável por validar o imóvel associado ao anúncio
  */
 public class ImovelHandler extends ModeracaoHandlerBase {
 

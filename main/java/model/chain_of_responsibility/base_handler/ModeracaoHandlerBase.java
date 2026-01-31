@@ -5,9 +5,8 @@ import model.prototype.concrete_prototype.Anuncio;
 
 /**
  * PADRÃO: Chain of Responsibility
- * PAPEL: Handler
- * FUNÇÃO: Classe abstrata que define a estrutura base para todos os handlers
- * de moderação.
+ * PAPEL: Base Handler
+ * FUNÇÃO: Classe abstrata que define a estrutura base para todos os handlers de moderação
  */
 public abstract class ModeracaoHandlerBase implements Handler {
 

@@ -4,8 +4,8 @@ import model.factory_method.product.ImovelBase;
 
 /**
  * PADRÃO: Factory Method
- * PAPEL: Produto Conctreto
- * FUNÇÃO: Representa um imóvel do tipo Casa com suas características específicas.
+ * PAPEL: Concrete Product
+ * FUNÇÃO: Representa um imóvel do tipo Casa com suas características específicas
  *
  * Características específicas de Casa:
  * - Possui quintal

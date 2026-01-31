@@ -5,7 +5,7 @@ import model.factory_method.product.Imovel;
 /**
  * PADRÃO: Factory Method
  * PAPEL: Creator (Interface)
- * FUNÇÃO: Define o contrato para todas as fábricas de imóveis.
+ * FUNÇÃO: Define o contrato para todas as fábricas de imóveis
  *
  * O método criarImovel() é o "Factory Method" que será implementado pelas factories concretas.
  */

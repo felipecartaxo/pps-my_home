@@ -14,35 +14,26 @@ import java.util.Set;
 /**
  * PADRÃO: Prototype
  * PAPEL: Prototype Manager
- * FUNÇÃO: Registro centralizado de protótipos de anúncios pré-configurados. Permite registrar, recuperar e clonar protótipos por chave.
+ * FUNÇÃO: Registro centralizado de protótipos de anúncios pré-configurados
  *
- * Esta classe funciona como um "catálogo" de configurações padrão que podem ser usadas para criar novos anúncios rapidamente.
- *
- * OBS.: Dado que esta classe acaba deixando o código mais complexo, a mesma pode ser removida, no entanto, caso optassemos apenas pela abordagem padrão, sempre que um novo protótipo fosse criado, o cliente também teria que ser modificado.
- *
- * Esta classe é mencionada no GOF, segue o trecho do livro:
- *
- * "When the number of prototypes in a system isn't fixed (that is, they can be created and destroyed dynamically), keep a registry of available prototypes. Clients won't manage prototypes themselves but will store and retrieve them from the registry. A client will ask the registry for a prototype before cloning it. We call this registry a prototype manager."
- *
- * A refereência pode ser encontrada aqui: https://www.cs.unc.edu/~stotts/GOF/hires/pat3dfso.htm
+ * Permite registrar, recuperar e clonar protótipos por chave
+ * Esta classe funciona como um "catálogo" de configurações padrão que podem ser usadas para criar novos anúncios rapidamente
  */
 public class AnuncioPrototypeRegistry {
 
     // Mapa de protótipos registrados
     private final Map<String, AnuncioPrototype> prototipos;
 
-    /**
-     * Construtor que inicializa o registro com protótipos padrão do sistema.
-     */
+    // Construtor que inicializa o registro com protótipos padrão do sistema
     public AnuncioPrototypeRegistry() {
         this.prototipos = new HashMap<>();
         registrarPrototiposPadrao();
     }
 
     /**
-     * Registra os protótipos padrão conforme especificado no RF02.
+     * Registra os protótipos padrão conforme especificado no RF02
      *
-     * Exemplos do requisito:
+     * Exemplos:
      * - Apartamento padrão: 2 quartos, 60m²
      * - Casa padrão: configuração típica residencial
      * - E outras configurações podem surgir no futuro
@@ -208,9 +199,12 @@ public class AnuncioPrototypeRegistry {
     // MÉTODOS AUXILIARES PARA CRIAÇÃO DE PROTÓTIPOS
     // ============================================================
 
-    private Anuncio criarPrototipoApartamento(String chave, String titulo,
-                                              double area, int quartos,
-                                              int banheiros, double preco) {
+    private Anuncio criarPrototipoApartamento(String chave,
+                                              String titulo,
+                                              double area,
+                                              int quartos,
+                                              int banheiros,
+                                              double preco) {
         ApartamentoFactory factory = new ApartamentoFactory();
         Apartamento apto = (Apartamento) factory.criarImovel(area, "[A definir]");
         apto.setNumeroQuartos(quartos);

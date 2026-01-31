@@ -5,7 +5,7 @@ import model.factory_method.product.ImovelBase;
 /**
  * PADRÃO: Factory Method
  * PAPEL: Concrete Product
- * FUNÇÃO: Representa um imóvel do tipo Apartamento com suas características específicas.
+ * FUNÇÃO: Representa um imóvel do tipo Apartamento com suas características específicas
  *
  * Características específicas de Apartamento:
  * - Número do andar

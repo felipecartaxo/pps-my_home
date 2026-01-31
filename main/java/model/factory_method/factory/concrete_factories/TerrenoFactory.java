@@ -7,13 +7,8 @@ import enums.Topografia;
 
 /**
  * PADRÃO: Factory Method - Role: Concrete Creator
- *
- * Factory responsável pela criação de imóveis do tipo Terreno.
- * Encapsula toda a lógica de instanciação e configuração inicial de terrenos.
- *
- * PRINCÍPIOS APLICADOS:
- * - SRP (Single Responsibility): Responsável apenas por criar Terrenos
- * - GRASP - Creator: Possui a responsabilidade de criar objetos Terreno
+ * Factory responsável pela criação de imóveis do tipo Terreno
+ * Encapsula toda a lógica de instanciação e configuração inicial de terrenos
  */
 public class TerrenoFactory implements ImovelFactory {
 
@@ -25,9 +20,7 @@ public class TerrenoFactory implements ImovelFactory {
         return terreno;
     }
 
-    /**
-     * Método específico para criar terreno com configurações detalhadas.
-     */
+    // Método específico para criar terreno com configurações detalhadas
     public Terreno criarTerrenoCompleto(double area, String localizacao,
                                         Terreno.TipoTerreno tipoTerreno,
                                         Topografia topografia,

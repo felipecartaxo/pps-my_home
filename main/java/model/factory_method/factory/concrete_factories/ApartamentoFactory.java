@@ -7,7 +7,8 @@ import model.factory_method.product.Imovel;
 /**
  * PADRÃO: Factory Method
  * PAPEL: Concrete Creator
- * FUNÇÃO: Factory responsável pela criação de imóveis do tipo Apartamento. Encapsula toda a lógica de instanciação e configuração inicial de apartamentos.
+ * FUNÇÃO: Factory responsável pela criação de imóveis do tipo Apartamento
+ * Encapsula toda a lógica de instanciação e configuração inicial de apartamentos
  */
 public class ApartamentoFactory implements ImovelFactory {
 

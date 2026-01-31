@@ -6,8 +6,8 @@ import model.factory_method.product.concrete_products.SalaComercial;
 
 /**
  * PADRÃO: Factory Method
- * PAPEL: Concrete CreatorFactory responsável pela criação de imóveis do tipo Sala Comercial.
- * FUNÇÃO: Encapsula toda a lógica de instanciação e configuração inicial de salas comerciais.
+ * PAPEL: Concrete CreatorFactory responsável pela criação de imóveis do tipo Sala Comercial
+ * FUNÇÃO: Encapsula toda a lógica de instanciação e configuração inicial de salas comerciais
  */
 public class SalaComercialFactory implements ImovelFactory {
 
@@ -19,9 +19,7 @@ public class SalaComercialFactory implements ImovelFactory {
         return sala;
     }
 
-    /**
-     * Método específico para criar sala comercial com configurações detalhadas.
-     */
+    // Método específico para criar sala comercial com configurações detalhadas
     public SalaComercial criarSalaCompleta(double area, String localizacao,
                                            SalaComercial.TipoUsoComercial tipoUso,
                                            int andar, int ambientes,

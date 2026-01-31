@@ -5,8 +5,7 @@ import model.prototype.concrete_prototype.Anuncio;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: Handler (Interface)
- *
- * Define o contrato que todos os handlers de moderação devem seguir.
+ * FUNÇÃO: Define o contrato que todos os handlers de moderação devem seguir.
  */
 public interface Handler {
 

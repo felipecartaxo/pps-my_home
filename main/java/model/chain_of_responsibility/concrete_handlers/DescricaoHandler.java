@@ -6,7 +6,7 @@ import model.prototype.concrete_prototype.Anuncio;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÃO: Handler responsável por validar a descrição do anúncio.
+ * FUNÇÃO: Handler responsável por validar a descrição do anúncio
  */
 public class DescricaoHandler extends ModeracaoHandlerBase {
 

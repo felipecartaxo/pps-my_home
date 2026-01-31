@@ -12,8 +12,9 @@ import java.util.List;
 /**
  * PADRÃO: Prototype
  * PAPEL: Concrete Prototype
- * FUNÇÃO: Representa um anúncio de imóvel no sistema MyHome.
- * Implementa a interface AnuncioPrototype para permitir clonagem.
+ * FUNÇÃO: Representa um anúncio de imóvel
+ *
+ * Implementa a interface AnuncioPrototype para permitir clonagem
  *
  * ATRIBUTOS OBRIGATÓRIOS (conforme RF01):
  * - título

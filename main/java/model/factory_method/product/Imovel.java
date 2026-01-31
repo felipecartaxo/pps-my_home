@@ -1,7 +1,7 @@
 package model.factory_method.product;
 
 /**
- * PADRÃO: Factory Method - Role: Product (Interface)
+ * PADRÃO: Factory Method
  * PAPEL: Inferface do produto
  * FUNÇÃO: Esta interface define o contrato que todos os tipos de imóveis devem seguir.
  */

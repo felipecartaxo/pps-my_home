@@ -1,6 +1,8 @@
 package model.factory_method.product;
 
 /**
+ * todo: Considere deixar apenas a interface ou a classe abstrata, não ambas
+ *
  * PADRÃO: Factory Method
  * PAPEL: Produto Abstrato
  * FUNÇÃO: Classe abstrata que implementa comportamentos comuns a todos os imóveis.

@@ -6,7 +6,7 @@ import model.prototype.concrete_prototype.Anuncio;
 /**
  * PADRÃO: Chain of Responsibility
  * PAPEL: ConcreteHandler
- * FUNÇÃO: Handler responsável por validar o título do anúncio.
+ * FUNÇÃO: Handler responsável por validar o título do anúncio
  */
 public class TituloHandler extends ModeracaoHandlerBase {
 
