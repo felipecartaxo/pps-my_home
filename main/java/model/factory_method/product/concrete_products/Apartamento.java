@@ -1,6 +1,6 @@
 package model.factory_method.product.concrete_products;
 
-import model.factory_method.product.ImovelBase;
+import model.factory_method.product.Imovel;
 
 /**
  * PADRÃO: Factory Method
@@ -13,7 +13,7 @@ import model.factory_method.product.ImovelBase;
  * - Valor do condomínio
  * - Número do apartamento
  */
-public class Apartamento extends ImovelBase {
+public class Apartamento extends Imovel {
 
     // Atributos específicos de Apartamento
     private int andar;

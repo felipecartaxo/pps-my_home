@@ -1,6 +1,6 @@
 package model.factory_method.product.concrete_products;
 
-import model.factory_method.product.ImovelBase;
+import model.factory_method.product.Imovel;
 
 /**
  * PADRÃO: Factory Method
@@ -13,7 +13,7 @@ import model.factory_method.product.ImovelBase;
  * - Tipo de uso (escritório, consultório, loja)
  * - Piso
  */
-public class SalaComercial extends ImovelBase {
+public class SalaComercial extends Imovel {
 
     public enum TipoUsoComercial {
         ESCRITORIO("Escritório"),
@@ -43,8 +43,7 @@ public class SalaComercial extends ImovelBase {
 
     public SalaComercial(double area, String localizacao) {
         super("Sala Comercial", area, localizacao);
-        this.tipoUso = TipoUsoComercial.ESCRITORIO; // Padrão
-        // Sala comercial não tem quartos
+        this.tipoUso = TipoUsoComercial.ESCRITORIO;
         this.numeroQuartos = 0;
     }
 

@@ -2,7 +2,7 @@ package model.decorator.concrete_decorators;
 
 import model.decorator.FiltroBusca;
 import model.decorator.FiltroDecorator;
-import model.factory_method.product.ImovelBase;
+import model.factory_method.product.Imovel;
 import model.prototype.concrete_prototype.Anuncio;
 
 import java.util.List;
@@ -50,11 +50,11 @@ public class FiltroQuartos extends FiltroDecorator {
         }
 
         // Verifica se o imóvel tem a propriedade de quartos
-        if (!(anuncio.getImovel() instanceof ImovelBase)) {
+        if (!(anuncio.getImovel() instanceof Imovel)) {
             return false;
         }
 
-        ImovelBase imovel = (ImovelBase) anuncio.getImovel();
+        Imovel imovel = (Imovel) anuncio.getImovel();
         int quartos = imovel.getNumeroQuartos();
 
         // Imóveis sem quartos (terrenos, galpões) não passam no filtro

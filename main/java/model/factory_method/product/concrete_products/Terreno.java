@@ -1,7 +1,7 @@
 package model.factory_method.product.concrete_products;
 
 import enums.Topografia;
-import model.factory_method.product.ImovelBase;
+import model.factory_method.product.Imovel;
 
 /**
  * PADRÃO: Factory Method
@@ -14,7 +14,7 @@ import model.factory_method.product.ImovelBase;
  * - Topografia (plano, aclive, declive)
  * - Frente do terreno em metros
  */
-public class Terreno extends ImovelBase {
+public class Terreno extends Imovel {
 
     public enum TipoTerreno {
         URBANO("Urbano"),
@@ -41,9 +41,8 @@ public class Terreno extends ImovelBase {
 
     public Terreno(double area, String localizacao) {
         super("Terreno", area, localizacao);
-        this.tipoTerreno = TipoTerreno.URBANO; // Padrão
-        this.topografia = Topografia.PLANO;    // Padrão
-        // Terreno não tem quartos/banheiros/garagem por padrão
+        this.tipoTerreno = TipoTerreno.URBANO;
+        this.topografia = Topografia.PLANO;
         this.numeroQuartos = 0;
         this.numeroBanheiros = 0;
         this.possuiGaragem = false;
@@ -80,6 +79,14 @@ public class Terreno extends ImovelBase {
 
     public void setFrenteMetros(double frenteMetros) {
         this.frenteMetros = frenteMetros;
+    }
+
+    public double getMetrosFrente() {
+        return frenteMetros;
+    }
+
+    public void setMetrosFrente(double metrosFrente) {
+        this.frenteMetros = metrosFrente;
     }
 
     public boolean isPossuiCercamento() {

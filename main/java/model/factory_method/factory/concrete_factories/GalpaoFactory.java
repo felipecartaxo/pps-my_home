@@ -1,8 +1,8 @@
 package model.factory_method.factory.concrete_factories;
 
 import model.factory_method.factory.ImovelFactory;
-import model.factory_method.product.concrete_products.Galpao;
 import model.factory_method.product.Imovel;
+import model.factory_method.product.concrete_products.Galpao;
 
 /**
  * PADRÃO: Factory Method

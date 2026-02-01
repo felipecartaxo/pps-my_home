@@ -1,6 +1,6 @@
 package model.factory_method.product.concrete_products;
 
-import model.factory_method.product.ImovelBase;
+import model.factory_method.product.Imovel;
 
 /**
  * PADRÃO: Factory Method
@@ -13,7 +13,7 @@ import model.factory_method.product.ImovelBase;
  * - Possui doca para carga/descarga
  * - Tipo de uso (logística, industrial, armazenagem)
  */
-public class Galpao extends ImovelBase {
+public class Galpao extends Imovel {
 
     public enum TipoUsoGalpao {
         LOGISTICA("Logística"),
@@ -33,8 +33,8 @@ public class Galpao extends ImovelBase {
     }
 
     // Atributos específicos de Galpão
-    private double peDireito; // É a distância entre piso e teto de um galpão
-    private double capacidadeCargaPiso; // kg/m²
+    private double peDireito;
+    private double capacidadeCargaPiso;
     private boolean possuiDoca;
     private int quantidadeDocas;
     private TipoUsoGalpao tipoUso;
@@ -43,8 +43,7 @@ public class Galpao extends ImovelBase {
 
     public Galpao(double area, String localizacao) {
         super("Galpão", area, localizacao);
-        this.tipoUso = TipoUsoGalpao.ARMAZENAGEM; // Padrão
-        // Galpão normalmente não tem quartos
+        this.tipoUso = TipoUsoGalpao.ARMAZENAGEM;
         this.numeroQuartos = 0;
     }
 
@@ -82,6 +81,10 @@ public class Galpao extends ImovelBase {
         if (quantidadeDocas > 0) {
             this.possuiDoca = true;
         }
+    }
+
+    public int getNumeroDocas() {
+        return quantidadeDocas;
     }
 
     public TipoUsoGalpao getTipoUso() {

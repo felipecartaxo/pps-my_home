@@ -1,6 +1,6 @@
 package model.factory_method.product.concrete_products;
 
-import model.factory_method.product.ImovelBase;
+import model.factory_method.product.Imovel;
 
 /**
  * PADRÃO: Factory Method
@@ -12,7 +12,7 @@ import model.factory_method.product.ImovelBase;
  * - Número de andares
  * - Área do terreno (pode ser maior que a área construída)
  */
-public class Casa extends ImovelBase {
+public class Casa extends Imovel {
 
     // Atributos específicos de Casa
     private boolean possuiQuintal;
@@ -75,7 +75,6 @@ public class Casa extends ImovelBase {
 
     @Override
     public boolean isValido() {
-        // Validação base + validações específicas de Casa
         return super.isValido() &&
                 numeroAndares > 0 &&
                 areaTerreno >= area;
